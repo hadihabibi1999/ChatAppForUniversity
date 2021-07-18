@@ -1,38 +1,42 @@
 body {
   width: 100vw;
 }
+html {
+  font-size: 62.5%;
+}
 
 .container {
   height: 98%;
   display: grid;
   grid-template-columns: auto 25%;
   align-items: flex-start;
-  column-gap: 5px;
+  column-gap: 0.5rem;
 }
 
 .first-part {
-  height: 96.5vh;
-  background-color: rgb(7, 248, 248);
-  border-radius: 6px;
-  padding: 15px;
+  height: 80vh;
+  background-color: rgb(10, 114, 250);
+  border-radius: 0.6rem;
+  padding: 2rem;
   line-height: 1.5;
   color: aliceblue;
+  overflow: scroll;
 }
 
 .secound-part {
-  margin-left: -30px;
+  margin-left: -3rem;
   background-color: rgb(228, 230, 230);
   margin: 0;
   overflow: scroll;
   height: 85vh;
-  border-radius: 6px;
+  border-radius: 0.6rem;
   overflow-y: scroll;
 }
 
 .image-profile {
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 2.5rem;
   object-fit: cover;
 }
 /* --- ul --- */
@@ -41,15 +45,15 @@ ul {
 }
 ul li {
   display: flex;
-  margin-bottom: 30px;
+  margin-bottom: 3rem;
   transition: padding 0.25s, transform 0.25s;
 }
 
 ul li:hover {
   background-color: rgb(249, 252, 252);
   cursor: pointer;
-  border-radius: 5px;
-  padding: 10px;
+  border-radius: 0.5rem;
+  padding: 1rem;
   transform: scale(1.15);
 }
 /* --- profiles --- */
@@ -57,25 +61,25 @@ ul li:hover {
   font-size: 1.5vw;
   font-weight: 500;
   margin: 0;
-  margin-top: 5px;
-  margin-left: 4px;
+  margin-top: 0.5rem;
+  margin-left: 0.4rem;
 }
 .details {
   display: flex;
   flex-direction: column;
-  margin-left: 4px;
+  margin-left: 0.4rem;
 }
 .subTitle {
   opacity: 0.5;
   margin: 0;
-  margin-left: 5px;
+  margin-left: 0.5rem;
 }
 /* remove-button */
 .remove-button {
   border: 0;
-  padding: 15px;
+  padding: 1.5rem;
   cursor: pointer;
-  border-radius: 7.5px;
+  border-radius: 0.75rem;
 }
 .total-channel {
   display: flex;
@@ -84,20 +88,20 @@ ul li:hover {
   flex-grow: 1;
 }
 .total {
-  margin-right: 30px;
+  margin-right: 3rem;
 }
 
 /* add button */
 .adding-button {
   position: absolute;
-  bottom: 30px;
-  right: 40px;
+  bottom: 3rem;
+  right: 4rem;
   border: 0;
-  padding: 16px 18px;
+  padding: 1.6rem 1.8rem;
   background-color: rgba(48, 112, 250, 0.657);
   color: aliceblue;
-  border-radius: 25px;
-  font-size: 18px;
+  border-radius: 2.5rem;
+  font-size: 1.8rem;
   transition: background-color 0.15s, transform 0.15s;
 }
 .adding-button:hover {
@@ -108,52 +112,75 @@ ul li:hover {
 
 .formInput {
   position: absolute;
-  bottom: 50px;
-  right: 50px;
+  bottom: 5rem;
+  right: 5rem;
 }
 
 /* count-unseen */
 .unseen-count {
   background-color: rgb(15, 78, 253);
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
   text-align: center;
-  border-radius: 10px;
-  padding: 1px;
+  border-radius: 1rem;
+  padding: 0.1rem;
   box-sizing: border-box;
   color: aliceblue;
-  margin-top: 10px;
+  margin-top: 1rem;
 }
 
+.back-button {
+  display: none;
+}
 @media screen and (max-width: 900px) {
   .container {
     grid-template-columns: auto;
   }
-  .first-part {
+  .back-button {
+    display: block;
+    position: fixed;
+    right: 2rem;
+    border: 0;
+    padding: 1em;
+    border-radius: 4px;
+    background-color: rgb(253, 253, 251);
+    color: rgb(1, 1, 63);
+    box-shadow: 0 0 10px 1px rgb(154, 181, 245);
+    cursor: pointer;
+    transition: transform 0.15s, background-color 0.15s;
+  }
+  .back-button:hover {
+    transform: scale(1.1);
+    background-color: rgb(221, 223, 223);
+  }
+
+  .unvisible {
     display: none;
   }
+
   ul li:hover {
-    padding: 5px 20px;
+    padding: 0.5rem 2rem;
     transform: scale(1.01);
   }
   ul li {
-    min-width: 230px;
+    min-width: 23rem;
   }
+
   .title {
-    margin-top: 10px;
-    font-size: 20px;
+    margin-top: 1rem;
+    font-size: 2rem;
   }
   .unseen-count {
-    margin-top: 12.5px;
+    margin-top: 1.25rem;
   }
 }
 .icon-times {
   display: inline-block;
-  transform: translate(20px) translateY(7.5px);
+  transform: translate(2rem) translateY(0.75rem);
 }
 .formInput_name {
   border: 1px solid rgb(129, 171, 248);
-  padding: 10px;
+  padding: 1rem;
   transition: box-shadow 0.15s;
   outline: none;
   border-radius: 5px;
@@ -165,7 +192,7 @@ ul li:hover {
 input[type="submit"] {
   background-color: rgb(253, 253, 253);
   border: 1px solid rgb(129, 171, 248);
-  padding: 10px;
+  padding: 1rem;
   border-radius: 5px;
   cursor: pointer;
   color: rgb(47, 112, 252);
@@ -176,10 +203,88 @@ input[type="submit"]:hover {
 }
 
 .each-mess {
-  border: 1px solid rgb(74, 77, 245);
-  padding: 20px 10px;
+  border: 1px solid rgb(230, 230, 251);
+  padding: 1em 0.5em;
   background-color: azure;
   color: black;
-  border-radius: 5px;
+  border-radius: 14px;
   width: fit-content;
+  max-width: 50vw;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  border-bottom-left-radius: 2px;
+  box-shadow: 1px 1px 10px 0.5px rgb(244, 253, 253);
+}
+.each-icon {
+  margin-top: 1rem;
+  font-size: 2rem;
+  color: rgb(12, 12, 12);
+}
+.each-text {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icon {
+  margin-left: 0.5rem;
+  border-top: 1px dashed rgb(1, 30, 73);
+  padding-top: 0.2em;
+  border-right: 1px dashed rgb(1, 30, 75);
+  padding-right: 0.25em;
+  border-top-right-radius: 4.5px;
+  margin-top: 0.5em;
+}
+
+@keyframes demo {
+  0% {
+    color: rgb(244, 253, 246);
+  }
+  20% {
+    color: rgb(251, 217, 178);
+  }
+  40% {
+    color: rgb(245, 203, 111);
+  }
+  60% {
+    color: rgba(253, 144, 43, 0.459);
+  }
+  80% {
+    color: rgb(255, 223, 133);
+  }
+  100% {
+    color: rgb(231, 255, 244);
+  }
+}
+@media screen and (min-width: 900px) {
+  .demo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    animation: demo 5s ease-out 1s infinite alternate;
+  }
+}
+
+.attachments {
+  outline: 0;
+  width: 4rem;
+  max-height: 4rem;
+  margin-left: 0.5rem;
+  border-radius: 3px;
+  object-fit: cover;
+  margin-top: 1rem;
+}
+
+.attach-images {
+  margin-top: 1.5rem;
+}
+.none {
+  display: none;
+}
+
+.attach-audio {
+  max-width: 25vw;
+}
+.attach-audio::-webkit-media-controls-toggle-closed-captions-button {
+  color: aqua;
 }

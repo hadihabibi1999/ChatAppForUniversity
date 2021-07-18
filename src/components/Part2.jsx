@@ -5,11 +5,15 @@ import EachChannel from "./EachChannel";
 
 import { create } from "apisauce";
 import EachMessage from "./EachMessage";
+import { BsBackspace } from "react-icons/bs";
 
 class Part2 extends Component {
   state = {
     channelss: [],
     mess: [],
+    bool: false,
+    bool2: true,
+    visible: "secound-part",
   };
 
   loadTheList = async () => {
@@ -23,6 +27,8 @@ class Part2 extends Component {
   }
 
   handleApi = async (id) => {
+    this.setState({ bool: true });
+    this.setState({ visible: "secound-part unvisible" });
     this.setState({ mess: [] });
     let api2Client = create({
       baseURL:
@@ -35,15 +41,37 @@ class Part2 extends Component {
     this.setState({});
   };
 
+  backButton = () => {
+    this.setState({ bool: false });
+    this.setState({ visible: "secound-part" });
+  };
   render() {
     return (
       <>
-        <div class="first-part">
-          {this.state.mess.map((l) =>
-            l.map((e) => <EachMessage key={e.news__id} text={e.description} />)
-          )}
-        </div>
-        <div class="secound-part" id="secound-part">
+        {!this.state.bool && (
+          <div class="first-part unvisible demo">یک کانال انتخاب کنید</div>
+        )}
+        {this.state.bool && (
+          <div class="first-part">
+            <button class="back-button" onClick={() => this.backButton()}>
+              back
+            </button>
+
+            {this.state.mess.map((l) =>
+              l.map((e) => (
+                <EachMessage
+                  key={e.news__id}
+                  text={e.description}
+                  archive={e.list_archive.map((i) => i.file_type)}
+                  fileID={e.list_archive.map(i=>i.file__id)}
+                  comment={e.count_comment}
+                />
+              ))
+            )}
+          </div>
+        )}
+
+        <div class={this.state.visible} id="secound-part">
           {this.state.channelss.map((e) =>
             e.map((l) => (
               <EachChannel
@@ -53,6 +81,7 @@ class Part2 extends Component {
                 key={l.channel__id}
                 unseenCount={l.count_news_new}
                 onClick={this.handleApi}
+                image={l.image_channel}
               />
             ))
           )}
